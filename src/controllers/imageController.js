@@ -73,7 +73,7 @@ class ImageController {
         data: images,
       });
     } catch (error) {
-      res.status(400).json({
+      res.status(500).json({
         status: false,
         message: error.message,
         data: null,
@@ -102,7 +102,7 @@ class ImageController {
         data: image,
       });
     } catch (error) {
-      res.status(400).json({
+      res.status(500).json({
         status: false,
         message: error.message,
         data: null,
