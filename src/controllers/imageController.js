@@ -57,6 +57,58 @@ class ImageController {
             });
         }
     }
+
+    static async getAllImages(req, res) {
+        try {
+            const images = await prisma.image.findMany({
+                select: {
+                    id: true,
+                    title: true,
+                    url: true,
+                }
+            });
+            res.status(200).json({
+                status: true,
+                message: "Images retrieved successfully",
+                data: images
+            });
+        } catch (error) {
+            res.status(400).json({
+                status: false,
+                message: error.message,
+                data: null
+            });
+        }
+    }
+
+    static async getImage(req, res) {
+        try {
+            const { id } = req.params;
+            const image = await prisma.image.findUnique({
+                where: { id: parseInt(id) }
+            });
+            
+            if (!image) {
+                return res.status(404).json({
+                    status: false,
+                    message: "Image not found",
+                    data: null
+                });
+            }
+            
+            res.status(200).json({
+                status: true,
+                message: "Image retrieved successfully",
+                data: image
+            });
+        } catch (error) {
+            res.status(400).json({
+                status: false,
+                message: error.message,
+                data: null
+            });
+        }
+    }
 }
 
 module.exports = ImageController; 
