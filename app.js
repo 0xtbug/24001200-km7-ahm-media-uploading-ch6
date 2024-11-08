@@ -7,6 +7,9 @@ const router = require("./src/routes");
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./src/config/swaggerConfig');
 
+app.set("view engine", "ejs");
+app.set("views", "./src/views");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
