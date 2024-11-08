@@ -26,7 +26,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Testing
       - run: npm test
 
       - name: Deploy to Server
