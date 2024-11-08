@@ -19,7 +19,6 @@
     "nodemon": "^3.1.7",
     "pm2": "^5.4.2",
     "prisma": "^5.22.0",
-    "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   }
 }
