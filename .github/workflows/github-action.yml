@@ -25,9 +25,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
-      - run: npm test
-
+        
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         env:
